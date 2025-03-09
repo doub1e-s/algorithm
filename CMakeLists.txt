@@ -8,6 +8,8 @@ message("Build include directories: ${build_include_dirs}")
 
 add_subdirectory(src)
 
+add_subdirectory(tests)
+
 add_executable(OfferSolutions main.cpp)
 
 target_link_libraries(OfferSolutions PRIVATE OfferSolutionsLib)
