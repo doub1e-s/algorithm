@@ -1,4 +1,4 @@
-project(my_gtest)
+project(algorithm_tests)
 
 add_subdirectory(third_party/googletest-1.16.0)
 
@@ -7,9 +7,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 enable_testing()
 
+# 创建一个空的TEST_SOURCES目录
+file(GLOB TEST_SOURCES "*.cpp")
+
 add_executable(
-        algorithm_tests
-        algorithm_tests.cpp
+        ${PROJECT_NAME}
+        ${TEST_SOURCES}
 )
 target_link_libraries(
         algorithm_tests
