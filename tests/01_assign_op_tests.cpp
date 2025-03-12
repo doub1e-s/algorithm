@@ -1,10 +1,8 @@
 //
 // Created by Damon on 2025/3/11.
 
-#include "algorithms.h"
+#include "my_algorithms.h"
 #include <gtest/gtest.h>
-#include <iostream>
-using namespace std;
 
 class CMyStringTest : public ::testing::Test
 {

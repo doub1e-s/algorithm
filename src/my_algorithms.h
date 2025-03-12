@@ -44,4 +44,18 @@ public:
     int m_length;
 };
 
+class MySingleton
+{
+// a lot of methods are omitted here
+public:
+    static MySingleton& GetInstance();
+    bool operator==(const MySingleton& other) const // 函数的声明一定要一致，不能少任何一个const
+    {
+        return true;    // 方便测试
+    }
+private:
+    MySingleton() = default;  // 私有化构造函数
+};
+
+
 #endif //ALGORITHMS_H
