@@ -15,31 +15,28 @@
 const修饰的取地址运算符：(与上面这个函数，不写的话编译器也会默认生成，默认返回this指针)
 */
 
-#include <string.h>
 #include <algorithms.h>
-namespace Damon {
-    /* 初级程序员写法，这里需要注意的是返回值需要是CMyString的引用，这样能够保证链式调用赋值运算符
-    CMyString& CMyString::operator=(const CMyString& str)
-    {
-        if (this == &str) { // 避免赋值给自己，赋值给自己可能会导致已经删除了内存，然后又设置给自己
-            return *this;
-        }
-        delete [] m_pData;  // 释放内存
-        m_pData = new char[strlen(str.m_pData) + 1];    // 如果申请内存异常，则容易因为返回空指针导致程序crash
-        strcpy(m_pData, str.m_pData);
+/* 初级程序员写法，这里需要注意的是返回值需要是CMyString的引用，这样能够保证链式调用赋值运算符
+CMyString& CMyString::operator=(const CMyString& str)
+{
+    if (this == &str) { // 避免赋值给自己，赋值给自己可能会导致已经删除了内存，然后又设置给自己
         return *this;
     }
-    */
+    delete [] m_pData;  // 释放内存
+    m_pData = new char[strlen(str.m_pData) + 1];    // 如果申请内存异常，则容易因为返回空指针导致程序crash
+    strcpy(m_pData, str.m_pData);
+    return *this;
+}
+*/
 
-    // 优雅的写法，使用拷贝构造函数和临时变量，保证了即是内存不够，也保证原有的对象还是能够正常使用
-    CMyString& CMyString::operator=(const CMyString& str)
-    {
-        if (this != &str) {
-            CMyString strTemp(str); // 使用拷贝构造函数在栈上创建一个相同的临时实例
-            char* pTemp = strTemp.m_pData;  // 保留temp中m_pData的地址
-            strTemp.m_pData = m_pData;  // 将当前对象的地址传给临时变量，以便临时变量调用析构函数时能清除内存
-            m_pData = pTemp;    // 将当前的m_pData指向实际复制的那段地址
-        }   // 作用域结束后，strTemp会删除旧的地址空间
-        return *this;
-    }
-} // namespace Damon
+// 优雅的写法，使用拷贝构造函数和临时变量，保证了即是内存不够，也保证原有的对象还是能够正常使用
+CMyString& CMyString::operator=(const CMyString& str)
+{
+    if (this != &str) {
+        CMyString strTemp(str); // 使用拷贝构造函数在栈上创建一个相同的临时实例
+        char* pTemp = strTemp.m_pData;  // 保留temp中m_pData的地址
+        strTemp.m_pData = m_pData;  // 将当前对象的地址传给临时变量，以便临时变量调用析构函数时能清除内存
+        m_pData = pTemp;    // 将当前的m_pData指向实际复制的那段地址
+    }   // 作用域结束后，strTemp会删除旧的地址空间
+    return *this;
+}

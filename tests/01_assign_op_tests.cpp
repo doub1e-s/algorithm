@@ -3,13 +3,13 @@
 
 #include "algorithms.h"
 #include <gtest/gtest.h>
-
-using namespace Damon;
+#include <iostream>
+using namespace std;
 
 class CMyStringTest : public ::testing::Test
 {
     protected:
-    Damon::CMyString my_string_;
+    CMyString my_string_;
 };
 
 TEST_F(CMyStringTest, DefaultConstructor) {
@@ -18,30 +18,31 @@ TEST_F(CMyStringTest, DefaultConstructor) {
 }
 
 TEST_F(CMyStringTest, ParameterizedConstructor) {
-    char* testData = new char[14];
+    int strLen = 14;
+    char* testData = new char[strLen];
     strcpy(testData, "Hello, World!");
-    CMyString str(testData);
+    CMyString str(testData, strLen);
     EXPECT_EQ(strcmp(str.m_pData, testData), 0);
 }
 
 TEST_F(CMyStringTest, CopyConstructor) {
     char* testData = new char[14];
     strcpy(testData, "Hello, World!");
-    CMyString str1(testData);
+    CMyString str1(testData, 14);
     CMyString str2(str1);
     EXPECT_EQ(strcmp(str1.m_pData, str2.m_pData), 0);
 }
 
 TEST_F(CMyStringTest, AssignmentOperator) {
     char* testData1 = new char[14];
+    strcpy(testData1, "Hello, World!");
+    CMyString str1(testData1, 14);
+    CMyString str2 = str1;
+    EXPECT_EQ(strcmp(str1.m_pData, str2.m_pData), 0) << "is good";
     char* testData2 = new char[16];
-    CMyString str1(testData1);
-    CMyString str2;
-    str2 = str1;
-    EXPECT_EQ(strcmp(str1.m_pData, str2.m_pData), 0);
-
-    str2 = CMyString(testData2);
-    EXPECT_EQ(strcmp(str2.m_pData, testData2), 0);
+    strcpy(testData2, "Hello, World!");
+    str2 = CMyString(testData2, 16);
+    EXPECT_EQ(strcmp(str1.m_pData, str2.m_pData), 0) << "is good";
 }
 
 TEST_F(CMyStringTest, Destructor)
@@ -49,7 +50,7 @@ TEST_F(CMyStringTest, Destructor)
     char* testData = new char[14];
     strcpy(testData, "Hello, World!");
     {
-        CMyString str(testData);
+        CMyString str(testData, 14);
     } // str goes out of scope and should be destroyed
     // No specific test here, but you can use tools like
 }
