@@ -5,7 +5,9 @@
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
 #include <string.h>
+#include <vector>
 
+// 01 自定义赋值运算符函数
 class CMyString
 {
 public:
@@ -44,6 +46,7 @@ public:
     int m_length;
 };
 
+// 02 实现一个单例模式
 class MySingleton
 {
 // a lot of methods are omitted here
@@ -57,5 +60,7 @@ private:
     MySingleton() = default;  // 私有化构造函数
 };
 
+// 03 找到数组中的任意一个重复数字
+int FindRepetitionNumber(const std::vector<int>&);
 
 #endif //ALGORITHMS_H
