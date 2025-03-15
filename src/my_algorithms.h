@@ -61,6 +61,9 @@ private:
 };
 
 // 03 找到数组中的任意一个重复数字
-int FindRepetitionNumber(const std::vector<int>&);
+int FindRepetitionNumber(const std::vector<int>& vec);
+
+// 04 在二维数组中查找是否有指定的数字，每一行从左到右递增，从上到下递增
+bool FindNumberInMatrix(const std::vector<std::vector<int>>& matrix, int target);
 
 #endif //ALGORITHMS_H
