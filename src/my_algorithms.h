@@ -4,7 +4,7 @@
 
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
-#include <string.h>
+#include <string>
 #include <vector>
 
 // 01 自定义赋值运算符函数
@@ -67,7 +67,7 @@ int FindRepetitionNumber(const std::vector<int>& vec);
 bool FindNumberInMatrix(const std::vector<std::vector<int>>& matrix, int target);
 
 // 05 将空格替换成指定字符
-bool FindNumberInMatrix(const std::vector<std::vector<int>>& matrix, int target);
+void ReplaceBlank(std::string& src);
 
 
 
