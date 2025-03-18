@@ -69,6 +69,15 @@ bool FindNumberInMatrix(const std::vector<std::vector<int>>& matrix, int target)
 // 05 将空格替换成指定字符
 void ReplaceBlank(std::string& src);
 
+// 06 从尾到头打印链表
+struct ListNode
+{
+    ListNode* m_pNext;
+    int value;
+};
+
+std::vector<int> TraverseListFromEnd(const ListNode* head);
+
 
 
 #endif //ALGORITHMS_H
