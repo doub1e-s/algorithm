@@ -112,5 +112,6 @@ public:
 
 // 10 斐波那契数列
 int Fibonacci(int n);
+int FibonacciByVec(int n);
 
 #endif //ALGORITHMS_H
