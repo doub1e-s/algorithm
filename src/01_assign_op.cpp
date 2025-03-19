@@ -15,7 +15,7 @@
 const修饰的取地址运算符：(与上面这个函数，不写的话编译器也会默认生成，默认返回this指针)
 */
 
-#include <my_algorithms.h>
+#include "my_algorithms.h"
 /* 初级程序员写法，这里需要注意的是返回值需要是CMyString的引用，这样能够保证链式调用赋值运算符
 CMyString& CMyString::operator=(const CMyString& str)
 {

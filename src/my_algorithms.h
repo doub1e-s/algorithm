@@ -110,4 +110,7 @@ public:
     std::stack<int> m_popStack;
 };
 
+// 10 斐波那契数列
+int Fibonacci(int n);
+
 #endif //ALGORITHMS_H
