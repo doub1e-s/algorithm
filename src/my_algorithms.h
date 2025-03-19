@@ -4,6 +4,7 @@
 
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -73,7 +74,7 @@ void ReplaceBlank(std::string& src);
 struct ListNode
 {
     ListNode* m_pNext;
-    int value;
+    int m_value;
 };
 
 // 使用栈
@@ -82,6 +83,31 @@ std::vector<int> TraverseListFromEnd(const ListNode* head);
 // 使用递归
 void TraverseListFromEnd(const ListNode* head, std::vector<int>& result);
 
+struct TreeNode
+{
+    TreeNode* m_pLeft;
+    TreeNode* m_pRight;
+    int m_value;
+    TreeNode(int value)
+    {
+        m_pLeft = nullptr;
+        m_pRight = nullptr;
+        m_value = value;
+    }
+};
 
+// 07 重建二叉树
+TreeNode* ReBuildBinaryTree(std::vector<int>& preOrder, std::vector<int>& inOrder);
+
+// 09 用栈实现一个队列
+class MyQueue
+{
+public:
+    void Push(int value);
+    int Top();
+    void Pop();
+    std::stack<int> m_insertStack;
+    std::stack<int> m_popStack;
+};
 
 #endif //ALGORITHMS_H
