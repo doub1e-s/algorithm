@@ -114,4 +114,7 @@ public:
 int Fibonacci(int n);
 int FibonacciByVec(int n);
 
+// 11 找到旋转数组中的最小值
+int FindMinInSpinVec(std::vector<int>& vec);
+
 #endif //ALGORITHMS_H
