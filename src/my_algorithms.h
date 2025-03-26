@@ -117,4 +117,7 @@ int FibonacciByVec(int n);
 // 11 找到旋转数组中的最小值
 int FindMinInSpinVec(std::vector<int>& vec);
 
+// 12 矩阵中的路径
+bool FindExistPath(const std::vector<std::vector<char>>& matrix, const std::string& target);
+
 #endif //ALGORITHMS_H
