@@ -88,7 +88,7 @@ struct TreeNode
     TreeNode* m_pLeft;
     TreeNode* m_pRight;
     int m_value;
-    TreeNode(int value)
+    explicit TreeNode(const int value)
     {
         m_pLeft = nullptr;
         m_pRight = nullptr;
@@ -119,5 +119,8 @@ int FindMinInSpinVec(std::vector<int>& vec);
 
 // 12 矩阵中的路径
 bool FindExistPath(const std::vector<std::vector<char>>& matrix, const std::string& target);
+
+// 13 机器人运动范围
+int RobotMoveRange(int row, int col, int k);
 
 #endif //ALGORITHMS_H
