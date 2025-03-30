@@ -3,3 +3,8 @@
 //
 
 #include "my_algorithms.h"
+
+int RobotMoveRange(int row, int col, int k)
+{
+    return -1;
+}

@@ -3,8 +3,5 @@
 //
 
 #include "my_algorithms.h"
+#include <gtest/gtest.h>
 
-int RobotMoveRange(int row, int col, int k)
-{
-    return -1;
-}
