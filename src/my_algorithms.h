@@ -121,6 +121,6 @@ int FindMinInSpinVec(std::vector<int>& vec);
 bool FindExistPath(const std::vector<std::vector<char>>& matrix, const std::string& target);
 
 // 13 机器人运动范围
-int RobotMoveRange(int row, int col, int k);
+int RobotMoveRange(int rowBound, int colBound, int k);
 
 #endif //ALGORITHMS_H
