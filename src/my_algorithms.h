@@ -126,4 +126,7 @@ int RobotMoveRange(int rowBound, int colBound, int k);
 // 14 剪绳子
 int CutRope(int k);
 
+// 15 二进制1个数
+int Count1Times(int value);
+
 #endif //ALGORITHMS_H
