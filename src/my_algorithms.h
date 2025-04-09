@@ -123,4 +123,7 @@ bool FindExistPath(const std::vector<std::vector<char>>& matrix, const std::stri
 // 13 机器人运动范围
 int RobotMoveRange(int rowBound, int colBound, int k);
 
+// 14 剪绳子
+int CutRope(int k);
+
 #endif //ALGORITHMS_H
