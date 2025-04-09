@@ -129,4 +129,10 @@ int CutRope(int k);
 // 15 二进制1个数
 int Count1Times(int value);
 
+// 16 数值的整数次方
+double GetPower(int value, int exponent);
+
+
+
+
 #endif //ALGORITHMS_H
