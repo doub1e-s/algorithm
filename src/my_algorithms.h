@@ -132,7 +132,8 @@ int Count1Times(int value);
 // 16 数值的整数次方
 double GetPower(int value, int exponent);
 
-
+// 17 打印从1到最大n位数
+std::vector<std::string> GetAllNumSinceOneToMaxN(int n);
 
 
 #endif //ALGORITHMS_H
