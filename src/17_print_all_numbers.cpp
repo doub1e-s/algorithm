@@ -4,6 +4,11 @@
 
 #include "my_algorithms.h"
 
+/**
+ * 解题思路上，按照位进行递归，从左往右，每一轮递归都使用for循环保证该位确定值之后，能够将剩余的每一个数字都打印。
+ * 返回值上，需要注意，index符合要求后直接插入返回数组，并直接return，优先判断是否满足return条件
+ */
+
 std::string DeleteBeginZero(const std::string& num)
 {
     /* 原始写法，不优雅
