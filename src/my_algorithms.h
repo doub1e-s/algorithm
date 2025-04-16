@@ -75,7 +75,7 @@ struct ListNode
 {
     ListNode* m_pNext;
     int m_value;
-    ListNode(int value) :m_value(value) {}
+    ListNode(int value) :m_value(value), m_pNext(nullptr) {}
     ListNode() : m_pNext(nullptr), m_value(0) {}
     ListNode(ListNode* pNext, int value) :m_pNext(pNext), m_value(value) {}
 };
