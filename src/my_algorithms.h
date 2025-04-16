@@ -75,6 +75,9 @@ struct ListNode
 {
     ListNode* m_pNext;
     int m_value;
+    ListNode(int value) :m_value(value) {}
+    ListNode() : m_pNext(nullptr), m_value(0) {}
+    ListNode(ListNode* pNext, int value) :m_pNext(pNext), m_value(value) {}
 };
 
 // 使用栈
@@ -134,6 +137,9 @@ double GetPower(int value, int exponent);
 
 // 17 打印从1到最大n位数
 std::vector<std::string> GetAllNumSinceOneToMaxN(int n);
+
+// 18 删除链表中的节点
+void DeleteListNode(ListNode** node, ListNode** deleteTarget);
 
 
 #endif //ALGORITHMS_H
