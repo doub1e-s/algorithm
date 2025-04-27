@@ -7,6 +7,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#include <functional>
 
 // 01 自定义赋值运算符函数
 class CMyString
@@ -142,4 +143,7 @@ std::vector<std::string> GetAllNumSinceOneToMaxN(int n);
 void DeleteListNode(ListNode** node, ListNode** deleteTarget);
 
 
+// 21 调整数组顺序
+using Predict = std::function<bool(int)>;
+void AdjustArrayOrder(std::vector<int>& vec, Predict predict);
 #endif //ALGORITHMS_H
