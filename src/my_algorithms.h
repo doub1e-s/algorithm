@@ -146,4 +146,8 @@ void DeleteListNode(ListNode** node, ListNode** deleteTarget);
 // 21 调整数组顺序
 using Predict = std::function<bool(int)>;
 void AdjustArrayOrder(std::vector<int>& vec, Predict predict);
+
+// 22 链表中倒数第k个节点
+ListNode* GetLastKNode(ListNode* head, int k);
+
 #endif //ALGORITHMS_H
