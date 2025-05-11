@@ -150,4 +150,7 @@ void AdjustArrayOrder(std::vector<int>& vec, Predict predict);
 // 22 链表中倒数第k个节点
 ListNode* GetLastKNode(ListNode* head, int k);
 
+// 23 获取环状结点的首节点
+ListNode* GetLoopLinkListEntryNode(ListNode* head);
+
 #endif //ALGORITHMS_H
