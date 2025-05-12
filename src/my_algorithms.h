@@ -153,4 +153,7 @@ ListNode* GetLastKNode(ListNode* head, int k);
 // 23 获取环状结点的首节点
 ListNode* GetLoopLinkListEntryNode(ListNode* head);
 
+// 24 反转链表
+ListNode* RevertLinkList(ListNode* head);
+
 #endif //ALGORITHMS_H
