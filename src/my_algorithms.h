@@ -156,4 +156,7 @@ ListNode* GetLoopLinkListEntryNode(ListNode* head);
 // 24 反转链表
 ListNode* RevertLinkList(ListNode* head);
 
+// 25 合并两个有序链表
+ListNode* Merge(ListNode* list1, ListNode* list2);
+
 #endif //ALGORITHMS_H
