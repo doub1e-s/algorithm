@@ -159,4 +159,7 @@ ListNode* RevertLinkList(ListNode* head);
 // 25 合并两个有序链表
 ListNode* Merge(ListNode* list1, ListNode* list2);
 
+// 26 判断b树是否为a树的子结构
+bool IsSubTree(TreeNode* node1, TreeNode* node2);
+
 #endif //ALGORITHMS_H
