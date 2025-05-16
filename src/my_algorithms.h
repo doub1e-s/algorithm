@@ -162,4 +162,7 @@ ListNode* Merge(ListNode* list1, ListNode* list2);
 // 26 判断b树是否为a树的子结构
 bool IsSubTree(TreeNode* node1, TreeNode* node2);
 
+// 27 原地返回二叉树的镜像
+TreeNode* MirrorTreeNode(TreeNode* head);
+
 #endif //ALGORITHMS_H
