@@ -7,7 +7,6 @@
 #include <iostream>
 #include <queue>
 
-
 using namespace std;
 
 vector<vector<int>> LayerOrderTraverse(TreeNode* root)
@@ -34,7 +33,6 @@ vector<vector<int>> LayerOrderTraverse(TreeNode* root)
     }
     return layer;
 }
-
 
 TEST(MirrorTreeTests, NormalTests)
 {

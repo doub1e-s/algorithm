@@ -165,4 +165,9 @@ bool IsSubTree(TreeNode* node1, TreeNode* node2);
 // 27 原地返回二叉树的镜像
 TreeNode* MirrorTreeNode(TreeNode* head);
 
+// 28 对称的二叉树
+bool SymmertricTree(TreeNode* head);
+
+
+
 #endif //ALGORITHMS_H
