@@ -168,6 +168,37 @@ TreeNode* MirrorTreeNode(TreeNode* head);
 // 28 对称的二叉树
 bool SymmertricTree(TreeNode* head);
 
+// 30 构建一个包含min stack的类
+template <typename T>
+class MinStack
+{
+private:
+    std::stack<T> m_stack;
+    std::stack<T> m_minStack;
+public:
+    void Push(const T& value)
+    {
+        if (m_minStack.empty() || value <= m_minStack.top()) {
+            m_minStack.push(value);
+        }
+        m_stack.push(value);
+    }
+    void Pop()
+    {
+        if (m_stack.top() == m_minStack.top()) {
+            m_minStack.pop();
+        }
+        m_stack.pop();
+    }
+    T Top()
+    {
+        return m_stack.top();
+    }
+    T MinValue()
+    {
+        return m_minStack.top();
+    }
 
+};
 
 #endif //ALGORITHMS_H
