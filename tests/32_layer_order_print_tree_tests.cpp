@@ -16,4 +16,8 @@ TEST(LayerOrderPrintTreeTests, Normal)
     node1->m_pLeft->m_pRight = new TreeNode(5);
     node1->m_pRight->m_pLeft = new TreeNode(6);
     node1->m_pRight->m_pRight = new TreeNode(7);
+
+    vector<vector<int>> layerOrder = LayerOrder(node1);
+    vector<vector<int>> comp = {{1}, {2,3}, {4,5,6,7}};
+    EXPECT_EQ(layerOrder, comp);
 }
