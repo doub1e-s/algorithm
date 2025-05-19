@@ -201,4 +201,7 @@ public:
 
 };
 
+// 32 从上到下层序打印二叉树
+std::vector<std::vector<int>> LayerOrder(TreeNode* head);
+
 #endif //ALGORITHMS_H
