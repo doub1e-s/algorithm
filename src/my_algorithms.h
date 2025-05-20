@@ -201,6 +201,9 @@ public:
 
 };
 
+// 31 栈的压入、弹出序列
+bool IsStackSeqence(std::vector<int> pushSeq, std::vector<int> popSeq);
+
 // 32 从上到下层序打印二叉树
 std::vector<std::vector<int>> LayerOrder(TreeNode* head);
 
