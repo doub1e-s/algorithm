@@ -207,4 +207,7 @@ bool IsStackSeqence(std::vector<int> pushSeq, std::vector<int> popSeq);
 // 32 从上到下层序打印二叉树
 std::vector<std::vector<int>> LayerOrder(TreeNode* head);
 
+// 33 判断序列是不是二叉搜索树的后序遍历
+bool BinarySearchTreePostOrder(std::vector<int> postOrder);
+
 #endif //ALGORITHMS_H
