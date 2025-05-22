@@ -10,8 +10,8 @@ std::vector<int> TraverseListFromEnd(const ListNode* head)
     std::vector<int> result;
     std::stack<int> values;
     while (head) {
-        values.push(head->m_value);
-        head = head->m_pNext;
+        values.push(head->value);
+        head = head->next;
     }
     while (!values.empty()) {
         result.push_back(values.top());
@@ -24,6 +24,6 @@ std::vector<int> TraverseListFromEnd(const ListNode* head)
 void TraverseListFromEnd(const ListNode* head, std::vector<int>& result)
 {
     if (head == nullptr) { return; }
-    TraverseListFromEnd(head->m_pNext, result);
-    result.push_back(head->m_value);
+    TraverseListFromEnd(head->next, result);
+    result.push_back(head->value);
 }

@@ -20,12 +20,12 @@ vector<vector<int>> LayerOrderTraverse(TreeNode* root)
         size_t curSize = nodeQueue.size();
         for (auto i = 0; i < curSize; i++) {
             TreeNode* curNode = nodeQueue.front();
-            curLayer.push_back(curNode->m_value);
-            if (curNode->m_pLeft) {
-                nodeQueue.push(curNode->m_pLeft);
+            curLayer.push_back(curNode->value);
+            if (curNode->left) {
+                nodeQueue.push(curNode->left);
             }
-            if (curNode->m_pRight) {
-                nodeQueue.push(curNode->m_pRight);
+            if (curNode->right) {
+                nodeQueue.push(curNode->right);
             }
             nodeQueue.pop();
         }
@@ -37,12 +37,12 @@ vector<vector<int>> LayerOrderTraverse(TreeNode* root)
 TEST(MirrorTreeTests, NormalTests)
 {
     TreeNode* tree1 = new TreeNode(3);
-    tree1->m_pLeft = new TreeNode(4);
-    tree1->m_pRight = new TreeNode(5);
-    tree1->m_pLeft->m_pLeft = new TreeNode(1);
-    tree1->m_pLeft->m_pRight = new TreeNode(2);
-    tree1->m_pRight->m_pLeft = new TreeNode(6);
-    tree1->m_pRight->m_pRight = new TreeNode(7);
+    tree1->left = new TreeNode(4);
+    tree1->right = new TreeNode(5);
+    tree1->left->left = new TreeNode(1);
+    tree1->left->right = new TreeNode(2);
+    tree1->right->left = new TreeNode(6);
+    tree1->right->right = new TreeNode(7);
     MirrorTreeNode(tree1);
     vector<vector<int>> layer = LayerOrderTraverse(tree1);
     cout << "simple test layer.size  " << layer.size() << endl;

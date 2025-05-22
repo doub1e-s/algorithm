@@ -12,7 +12,7 @@ TEST(LoopLinkListTests, NormalTests)
     ListNode node3 = ListNode(&node4, 3);
     ListNode node2 = ListNode(&node3, 2);
     ListNode node1 = ListNode(&node2, 1);
-    node5.m_pNext = &node4;
+    node5.next = &node4;
     ListNode* res = GetLoopLinkListEntryNode(&node1);
     EXPECT_EQ(res, &node4);
 }

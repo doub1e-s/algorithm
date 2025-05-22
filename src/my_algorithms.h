@@ -9,6 +9,30 @@
 #include <vector>
 #include <functional>
 
+struct TreeNode
+{
+    TreeNode* left;
+    TreeNode* right;
+    int value;
+    explicit TreeNode(const int value) : value(value)
+    {
+        left = nullptr;
+        right = nullptr;
+    }
+    bool operator == (const TreeNode& other) const{
+        return value == other.value && left == other.left && right == other.right;
+    }
+};
+
+struct ListNode
+{
+    ListNode* next;
+    int value;
+    ListNode(int value) :value(value), next(nullptr) {}
+    ListNode() : next(nullptr), value(0) {}
+    ListNode(ListNode* pNext, int value) :next(pNext), value(value) {}
+};
+
 // 01 自定义赋值运算符函数
 class CMyString
 {
@@ -72,33 +96,12 @@ bool FindNumberInMatrix(const std::vector<std::vector<int>>& matrix, int target)
 void ReplaceBlank(std::string& src);
 
 // 06 从尾到头打印链表,两种写法
-struct ListNode
-{
-    ListNode* m_pNext;
-    int m_value;
-    ListNode(int value) :m_value(value), m_pNext(nullptr) {}
-    ListNode() : m_pNext(nullptr), m_value(0) {}
-    ListNode(ListNode* pNext, int value) :m_pNext(pNext), m_value(value) {}
-};
-
 // 使用栈
 std::vector<int> TraverseListFromEnd(const ListNode* head);
 
 // 使用递归
 void TraverseListFromEnd(const ListNode* head, std::vector<int>& result);
 
-struct TreeNode
-{
-    TreeNode* m_pLeft;
-    TreeNode* m_pRight;
-    int m_value;
-    explicit TreeNode(const int value)
-    {
-        m_pLeft = nullptr;
-        m_pRight = nullptr;
-        m_value = value;
-    }
-};
 
 // 07 重建二叉树
 TreeNode* ReBuildBinaryTree(std::vector<int>& preOrder, std::vector<int>& inOrder);
@@ -209,5 +212,8 @@ std::vector<std::vector<int>> LayerOrder(TreeNode* head);
 
 // 33 判断序列是不是二叉搜索树的后序遍历
 bool BinarySearchTreePostOrder(std::vector<int> postOrder);
+
+// 34 二叉树中和为某一值的路径
+std::vector<std::vector<int>> TreeNodeSumTrace(TreeNode* head, int sum);
 
 #endif //ALGORITHMS_H

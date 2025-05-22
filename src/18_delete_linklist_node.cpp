@@ -9,19 +9,19 @@ void DeleteListNode(ListNode** node, ListNode** deleteTarget)
     if (*node == nullptr || *deleteTarget == nullptr) { return ; }
     // 如果要删除的节点是头节点
     if (*node == *deleteTarget) {
-        ListNode* newHead = (*node)->m_pNext;
+        ListNode* newHead = (*node)->next;
         delete (*node);
         *node = newHead;
         return ;
     }
-    while ((*node)->m_pNext != *deleteTarget) {
-        *node = (*node)->m_pNext;
+    while ((*node)->next != *deleteTarget) {
+        *node = (*node)->next;
     }
     // 找到target则删除，否则直接返回
-    if ((*node)->m_pNext == *deleteTarget) {
-        ListNode* next = (*node)->m_pNext->m_pNext;
-        delete (*node)->m_pNext;
+    if ((*node)->next == *deleteTarget) {
+        ListNode* next = (*node)->next->next;
+        delete (*node)->next;
         *deleteTarget = nullptr;
-        (*node)->m_pNext = next;
+        (*node)->next = next;
     }
 }

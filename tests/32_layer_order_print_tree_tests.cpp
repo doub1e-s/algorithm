@@ -10,12 +10,12 @@ using namespace std;
 TEST(LayerOrderPrintTreeTests, Normal)
 {
     TreeNode* node1 = new TreeNode(1);
-    node1->m_pLeft = new TreeNode(2);
-    node1->m_pRight = new TreeNode(3);
-    node1->m_pLeft->m_pLeft = new TreeNode(4);
-    node1->m_pLeft->m_pRight = new TreeNode(5);
-    node1->m_pRight->m_pLeft = new TreeNode(6);
-    node1->m_pRight->m_pRight = new TreeNode(7);
+    node1->left = new TreeNode(2);
+    node1->right = new TreeNode(3);
+    node1->left->left = new TreeNode(4);
+    node1->left->right = new TreeNode(5);
+    node1->right->left = new TreeNode(6);
+    node1->right->right = new TreeNode(7);
 
     vector<vector<int>> layerOrder = LayerOrder(node1);
     vector<vector<int>> comp = {{1}, {2,3}, {4,5,6,7}};

@@ -14,15 +14,15 @@ TEST(MergeLinkList, NormalTest)
     ListNode* node2 = new ListNode(2);
     ListNode* node4 = new ListNode(4);
     ListNode* node6 = new ListNode(6);
-    node1->m_pNext = node3;
-    node3->m_pNext = node5;
-    node2->m_pNext = node4;
-    node4->m_pNext = node6;
+    node1->next = node3;
+    node3->next = node5;
+    node2->next = node4;
+    node4->next = node6;
     ListNode* head = Merge(node1, node2);
     std::vector<int> myVec;
     while (head) {
-        myVec.push_back(head->m_value);
-        head = head->m_pNext;
+        myVec.push_back(head->value);
+        head = head->next;
     }
     std::vector<int> compareVec = {1, 2, 3, 4, 5, 6};
     EXPECT_EQ(myVec, compareVec);

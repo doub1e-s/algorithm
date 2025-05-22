@@ -8,9 +8,9 @@
 void InOrderTraverse(TreeNode* root, std::vector<int>& inOrder)
 {
     if (root == nullptr) { return; }
-    InOrderTraverse(root->m_pLeft, inOrder);
-    inOrder.push_back(root->m_value);
-    InOrderTraverse(root->m_pRight, inOrder);
+    InOrderTraverse(root->left, inOrder);
+    inOrder.push_back(root->value);
+    InOrderTraverse(root->right, inOrder);
 }
 
 TEST(RebuildBinaryTreeTests, EmptyTree)

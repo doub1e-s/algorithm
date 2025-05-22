@@ -12,15 +12,15 @@ ListNode* GetLastKNode(ListNode* head, int k)
     // 如果k大于head的总长度，则直接返回head
     ListNode* tail = head;
     while (k > 0 && tail != nullptr) {
-        tail = tail->m_pNext;
+        tail = tail->next;
         k--;
     }
     if (tail == nullptr) {
         return head;
     }
     while (tail != nullptr) {
-        tail = tail->m_pNext;
-        head = head->m_pNext;
+        tail = tail->next;
+        head = head->next;
     }
     return head;
 }

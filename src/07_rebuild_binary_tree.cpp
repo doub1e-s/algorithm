@@ -23,9 +23,9 @@ TreeNode* ReBuildBinaryTree(std::vector<int>& preOrder, int preLeft, int preRigh
     TreeNode* root = new TreeNode(preOrder[preLeft]);
     int inOrderIndex = inOrderValue2Ind[preOrder[preLeft]];
     int leftTreeSize = inOrderIndex - inLeft;
-    root->m_pLeft = ReBuildBinaryTree(preOrder, preLeft + 1, preLeft + leftTreeSize,
+    root->left = ReBuildBinaryTree(preOrder, preLeft + 1, preLeft + leftTreeSize,
         inOrder, inLeft, inOrderIndex - 1);
-    root->m_pRight = ReBuildBinaryTree(preOrder, preLeft + leftTreeSize + 1, preRight,
+    root->right = ReBuildBinaryTree(preOrder, preLeft + leftTreeSize + 1, preRight,
         inOrder, inOrderIndex + 1, inRight);
     return root;
 }

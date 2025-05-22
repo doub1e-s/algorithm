@@ -13,8 +13,8 @@ ListNode* RevertLinkList(ListNode* head)
     ListNode* cur = head;
     ListNode* next = nullptr;
     while (cur != nullptr) {
-        next = cur->m_pNext;
-        cur->m_pNext = prev;
+        next = cur->next;
+        cur->next = prev;
         prev = cur;
         cur = next;
     }

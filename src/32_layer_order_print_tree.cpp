@@ -15,12 +15,12 @@ std::vector<std::vector<int>> LayerOrder(TreeNode* head)
         std::vector<int> vec;
         size_t queueSize = myQueue.size();
         for (size_t i = 0; i < queueSize; i++) {
-            vec.push_back(myQueue.front()->m_value);
-            if (myQueue.front()->m_pLeft) {
-                myQueue.push(myQueue.front()->m_pLeft);
+            vec.push_back(myQueue.front()->value);
+            if (myQueue.front()->left) {
+                myQueue.push(myQueue.front()->left);
             }
-            if (myQueue.front()->m_pRight) {
-                myQueue.push(myQueue.front()->m_pRight);
+            if (myQueue.front()->right) {
+                myQueue.push(myQueue.front()->right);
             }
             myQueue.pop();
         }
