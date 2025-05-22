@@ -9,6 +9,8 @@
 #include <vector>
 #include <functional>
 
+using namespace std;
+
 struct TreeNode
 {
     TreeNode* left;
@@ -215,5 +217,16 @@ bool BinarySearchTreePostOrder(std::vector<int> postOrder);
 
 // 34 二叉树中和为某一值的路径
 std::vector<std::vector<int>> TreeNodeSumTrace(TreeNode* head, int sum);
+
+// 35 复制复杂二叉树
+struct ComplexNode
+{
+    int value;
+    ComplexNode* next;
+    ComplexNode* sibling;
+    ComplexNode(int value) : value(value), next(nullptr), sibling(nullptr) {};
+    ComplexNode(int value, ComplexNode* next, ComplexNode* sibling) : value(value), next(next), sibling(sibling) {};
+};
+ComplexNode* CopyComplexNode(ComplexNode* head);
 
 #endif //ALGORITHMS_H
