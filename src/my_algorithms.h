@@ -229,4 +229,7 @@ struct ComplexNode
 };
 ComplexNode* CopyComplexNode(ComplexNode* head);
 
+// 36 二叉搜索树与双向链表
+TreeNode* ConvertBSTToDLL(TreeNode* root);
+
 #endif //ALGORITHMS_H
