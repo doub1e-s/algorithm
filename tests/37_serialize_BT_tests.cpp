@@ -91,26 +91,26 @@ TEST(SerializeDeserializeTest, IncompleteBinaryTree) {
     root->left->right = new TreeNode(4);
     root->right->right = new TreeNode(5);
 
-    std::string serialized = serialize(root);
+    std::string serialized = SerializeBT(root);
     EXPECT_EQ(serialized, "1,2,#,4,#,#,3,#,5,#,#");
 
-    TreeNode* deserialized = deserialize(serialized);
+    TreeNode* deserialized = DeSerializeBT(serialized);
     ASSERT_NE(deserialized, nullptr);
-    EXPECT_EQ(deserialized->val, 1);
+    EXPECT_EQ(deserialized->value, 1);
 
     // 验证左子树
     ASSERT_NE(deserialized->left, nullptr);
-    EXPECT_EQ(deserialized->left->val, 2);
+    EXPECT_EQ(deserialized->left->value, 2);
     EXPECT_EQ(deserialized->left->left, nullptr);  // 左子节点缺失
     ASSERT_NE(deserialized->left->right, nullptr);
-    EXPECT_EQ(deserialized->left->right->val, 4);
+    EXPECT_EQ(deserialized->left->right->value, 4);
 
     // 验证右子树
     ASSERT_NE(deserialized->right, nullptr);
-    EXPECT_EQ(deserialized->right->val, 3);
+    EXPECT_EQ(deserialized->right->value, 3);
     EXPECT_EQ(deserialized->right->left, nullptr);  // 左子节点缺失
     ASSERT_NE(deserialized->right->right, nullptr);
-    EXPECT_EQ(deserialized->right->right->val, 5);
+    EXPECT_EQ(deserialized->right->right->value, 5);
 
     // 释放内存
     delete deserialized->left->right;

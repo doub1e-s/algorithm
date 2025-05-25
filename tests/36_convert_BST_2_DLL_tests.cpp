@@ -67,12 +67,6 @@ TEST(BSTToDLLTest, NormalCase) {
     EXPECT_EQ(tail->left->left->left->value, 2);
     EXPECT_EQ(tail->left->left->left->left->value, 1);
 
-    // 打印验证（可选）
-    std::cout << "Forward: ";
-    printDLLForward(head);  // 输出: 1 2 3 4 5
-    std::cout << "Backward: ";
-    printDLLBackward(tail); // 输出: 5 4 3 2 1
-
     // 释放内存
     freeDLL(head);
 
