@@ -232,4 +232,9 @@ ComplexNode* CopyComplexNode(ComplexNode* head);
 // 36 二叉搜索树与双向链表
 TreeNode* ConvertBSTToDLL(TreeNode* root);
 
+// 37 序列化和反序列化二叉树
+string SerializeBT(TreeNode* root);
+
+TreeNode* DeSerializeBT(string nodes);
+
 #endif //ALGORITHMS_H
