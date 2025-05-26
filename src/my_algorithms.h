@@ -237,4 +237,7 @@ string SerializeBT(TreeNode* root);
 
 TreeNode* DeSerializeBT(string nodes);
 
+// 38 字符串的排列
+vector<string> ReorderString(string str);
+
 #endif //ALGORITHMS_H
