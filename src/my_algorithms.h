@@ -240,4 +240,7 @@ TreeNode* DeSerializeBT(string nodes);
 // 38 字符串的排列
 vector<string> ReorderString(string str);
 
+// 39 数组中出现次数超过一般的数字
+int GetMaxCntNumber(vector<int> nums);
+
 #endif //ALGORITHMS_H
