@@ -246,4 +246,7 @@ int GetMaxCntNumber(vector<int> nums);
 // 40 数组中最小的K个数, 数字事先是没有进行排序的
 vector<int> GetMinKNums(vector<int> nums, int k);
 
+// 42 连续子数组的最大和
+int GetMaxContinuousNumber(vector<int> nums);
+
 #endif //ALGORITHMS_H
