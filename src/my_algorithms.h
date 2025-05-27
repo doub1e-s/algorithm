@@ -243,4 +243,7 @@ vector<string> ReorderString(string str);
 // 39 数组中出现次数超过一般的数字
 int GetMaxCntNumber(vector<int> nums);
 
+// 40 数组中最小的K个数, 数字事先是没有进行排序的
+vector<int> GetMinKNums(vector<int> nums, int k);
+
 #endif //ALGORITHMS_H
