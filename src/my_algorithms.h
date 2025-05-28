@@ -249,4 +249,7 @@ vector<int> GetMinKNums(vector<int> nums, int k);
 // 42 连续子数组的最大和
 int GetMaxContinuousNumber(vector<int> nums);
 
+// 43 1~n整数中1出现的次数
+int CountToN1Times(int n);
+
 #endif //ALGORITHMS_H
