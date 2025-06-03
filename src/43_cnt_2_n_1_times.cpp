@@ -44,4 +44,5 @@ int countDigitOne(int n)
     }
     ret+= countDigitOne(n%temp);
     return ret;
+
 }
