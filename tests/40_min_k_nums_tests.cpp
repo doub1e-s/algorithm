@@ -9,8 +9,5 @@ TEST(MinKNums, NormalTest)
 {
     vector<int> nums = {1,2,4,56,6,6,7,723,4,6,7,2};
     vector<int> res = GetMinKNums(nums, 7);
-    for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
-    }
 }
 
