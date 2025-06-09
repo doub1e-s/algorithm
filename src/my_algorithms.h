@@ -80,6 +80,7 @@ class MySingleton
 // a lot of methods are omitted here
 public:
     static MySingleton& GetInstance();
+
     bool operator==(const MySingleton& other) const // 函数的声明一定要一致，不能少任何一个const
     {
         return true;    // 方便测试
@@ -251,5 +252,8 @@ int GetMaxContinuousNumber(vector<int> nums);
 
 // 43 1~n整数中1出现的次数
 int CountToN1Times(int n);
+
+// 47 max gift
+int MaxGiftSum(vector<vector<int>> matrix);
 
 #endif //ALGORITHMS_H
