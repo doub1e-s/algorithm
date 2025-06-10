@@ -256,4 +256,7 @@ int CountToN1Times(int n);
 // 47 max gift
 int MaxGiftSum(vector<vector<int>> matrix);
 
+// 48 最大不重复的子字符串
+int GetMaxNoRepeatStr(const string& str);
+
 #endif //ALGORITHMS_H
