@@ -263,4 +263,7 @@ int GetMaxNoRepeatStr(const string& str);
 bool IsUglyNum(int num);
 int FindXthUglyNum(int n);
 
+// 52 两个链表的第一个公共节点
+ListNode* FindFirstCommonNode(ListNode* l1, ListNode* l2);
+
 #endif //ALGORITHMS_H
