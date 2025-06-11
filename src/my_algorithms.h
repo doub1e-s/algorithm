@@ -259,4 +259,8 @@ int MaxGiftSum(vector<vector<int>> matrix);
 // 48 最大不重复的子字符串
 int GetMaxNoRepeatStr(const string& str);
 
+// 49 判断一个数字是否是丑数，或找到第n个丑数
+bool IsUglyNum(int num);
+int FindXthUglyNum(int n);
+
 #endif //ALGORITHMS_H
