@@ -10,7 +10,7 @@
 namespace damon
 {
 // 设计目标是确认是否为同一个树，其中一个为空也直接返回false
-bool IsSameTree(TreeNode* node1, TreeNode* node2)
+inline bool IsSameTree(TreeNode* node1, TreeNode* node2)
 {
     if (!node1 && !node2) { return true; }
     if (!node1 || !node2) { return false;}
@@ -19,7 +19,7 @@ bool IsSameTree(TreeNode* node1, TreeNode* node2)
 }
 
     // 辅助函数：通过数组创建链表
-    ListNode* createList(const std::vector<int>& values) {
+inline ListNode* createList(const std::vector<int>& values) {
     if (values.empty()) return nullptr;
     ListNode* head = new ListNode(values[0]);
     ListNode* current = head;
@@ -30,8 +30,8 @@ bool IsSameTree(TreeNode* node1, TreeNode* node2)
     return head;
 }
 
-    // 辅助函数：连接两个链表的公共部分
-    void connectLists(ListNode* headA, ListNode* headB, ListNode* commonHead) {
+// 辅助函数：连接两个链表的公共部分
+inline void connectLists(ListNode* headA, ListNode* headB, ListNode* commonHead) {
     // 找到 headA 和 headB 的尾节点
     ListNode* tailA = headA;
     while (tailA->next != nullptr) tailA = tailA->next;

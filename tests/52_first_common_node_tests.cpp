@@ -6,31 +6,6 @@
 #include "utils/test_helper.h"
 #include <gtest/gtest.h>
 
-// // 辅助函数：通过数组创建链表
-// ListNode* createList(const std::vector<int>& values) {
-//     if (values.empty()) return nullptr;
-//     ListNode* head = new ListNode(values[0]);
-//     ListNode* current = head;
-//     for (size_t i = 1; i < values.size(); ++i) {
-//         current->next = new ListNode(values[i]);
-//         current = current->next;
-//     }
-//     return head;
-// }
-//
-// // 辅助函数：连接两个链表的公共部分
-// void connectLists(ListNode* headA, ListNode* headB, ListNode* commonHead) {
-//     // 找到 headA 和 headB 的尾节点
-//     ListNode* tailA = headA;
-//     while (tailA->next != nullptr) tailA = tailA->next;
-//     ListNode* tailB = headB;
-//     while (tailB->next != nullptr) tailB = tailB->next;
-//
-//     // 连接公共部分
-//     tailA->next = commonHead;
-//     tailB->next = commonHead;
-// }
-
 // 测试用例
 TEST(IntersectionNodeTest, NormalCase) {
     // 链表A: 1 -> 2 -> 3 -> 6 -> 7
