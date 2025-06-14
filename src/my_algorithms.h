@@ -269,4 +269,7 @@ int GetReorderPairCnt(vector<int> arr);
 // 52 两个链表的第一个公共节点
 ListNode* FindFirstCommonNode(ListNode* l1, ListNode* l2);
 
+// 53 在排序数组中查数字，返回他出现的次数
+int FindNumInOrderedArr(const vector<int>& arr, int target);
+
 #endif //ALGORITHMS_H
