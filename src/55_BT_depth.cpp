@@ -28,3 +28,16 @@ int BTDepth(TreeNode* root)
     BTDepthHelper(root, curDepth, maxDepth);
     return maxDepth;
 }
+
+bool IsBalanceTree(TreeNode* root)
+{
+    if (!root) { return true; }
+    int leftTreeDepth = 0;
+    int rightTreeDepth = 0;
+    leftTreeDepth = BTDepth(root->left);
+    rightTreeDepth = BTDepth(root->right);
+    if (std::abs(leftTreeDepth - rightTreeDepth) > 1) {
+        return false;
+    }
+    return IsBalanceTree(root->left) && IsBalanceTree(root->right);
+}

@@ -278,4 +278,7 @@ int FindLargeKNode(TreeNode* head, int k);
 // 55 二叉树的深度
 int BTDepth(TreeNode* root);
 
+// 平衡二叉树
+bool IsBalanceTree(TreeNode* root);
+
 #endif //ALGORITHMS_H
