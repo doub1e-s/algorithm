@@ -287,5 +287,7 @@ pair<int, int> FindTwoNumInVec(const vector<int>& vec);
 // 57 和为s的数字
 pair<int, int> SumToTarget(vector<int> vec, int target);
 
+// 打印连续数组，要求这个连续数组的和最后等于target
+vector<vector<int>> FindContinuesSum(int target);
 
 #endif //ALGORITHMS_H
