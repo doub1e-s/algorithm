@@ -284,4 +284,8 @@ bool IsBalanceTree(TreeNode* root);
 // 56 数组中数字出现的次数, 1. 数组中除了两个数组其他都出现了两次，求这两个数字
 pair<int, int> FindTwoNumInVec(const vector<int>& vec);
 
+// 57 和为s的数字
+pair<int, int> SumToTarget(vector<int> vec, int target);
+
+
 #endif //ALGORITHMS_H
