@@ -272,4 +272,8 @@ ListNode* FindFirstCommonNode(ListNode* l1, ListNode* l2);
 // 53 在排序数组中查数字，返回他出现的次数
 int FindNumInOrderedArr(const vector<int>& arr, int target);
 
+// 54 二叉搜索数中的第K大节点
+int FindLargeKNode(TreeNode* head, int k);
+
+
 #endif //ALGORITHMS_H
