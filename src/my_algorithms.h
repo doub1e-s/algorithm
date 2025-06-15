@@ -275,5 +275,7 @@ int FindNumInOrderedArr(const vector<int>& arr, int target);
 // 54 二叉搜索数中的第K大节点
 int FindLargeKNode(TreeNode* head, int k);
 
+// 55 二叉树的深度
+int BTDepth(TreeNode* root);
 
 #endif //ALGORITHMS_H
