@@ -293,4 +293,6 @@ vector<vector<int>> FindContinuesSum(int target);
 // 58 翻转字符串
 string RevertStringByWord(string word);
 
+string leftRotateString(string word, int k);
+
 #endif //ALGORITHMS_H

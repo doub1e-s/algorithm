@@ -30,3 +30,29 @@ TEST(RevertStringByWordTests, BlankStartEndTests)
     string expectedRes2 = " world hello   ";
     EXPECT_EQ(actualRes2, expectedRes2);
 }
+
+TEST(RotateStringTests, NormalTests)
+{
+    string actualRes = leftRotateString("abcdef", 2);
+    string expectedRes = "cdefab";
+    ASSERT_EQ(actualRes, expectedRes);
+
+    string actualRes2 = leftRotateString("abcdef", 3);
+    string expectedRes2 = "defabc";
+    ASSERT_EQ(actualRes2, expectedRes2);
+
+    string actualRes3 = leftRotateString("abcdef", 4);
+    string expectedRes3 = "efabcd";
+    ASSERT_EQ(actualRes3, expectedRes3);
+}
+
+TEST(RoatateStringTests, EdgeTests)
+{
+    string actualRes = leftRotateString("abcdef", -1);
+    string expectedRes = "abcdef";
+    ASSERT_EQ(actualRes, expectedRes);
+
+    string actualRes2 = leftRotateString("abcdef", 100);
+    string expectedRes2 = "abcdef";
+    ASSERT_EQ(actualRes2, expectedRes2);
+}
