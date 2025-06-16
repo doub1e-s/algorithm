@@ -290,4 +290,7 @@ pair<int, int> SumToTarget(vector<int> vec, int target);
 // 打印连续数组，要求这个连续数组的和最后等于target
 vector<vector<int>> FindContinuesSum(int target);
 
+// 58 翻转字符串
+string RevertStringByWord(string word);
+
 #endif //ALGORITHMS_H
