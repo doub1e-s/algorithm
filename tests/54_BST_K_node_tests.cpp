@@ -29,7 +29,7 @@ TEST(BSTKNodeTests, NormalTest)
 
 TEST(BSTKNodeTests, ExceptionTests)
 {
-    TreeNode* root;
+    TreeNode* root = nullptr;
     EXPECT_EQ(FindLargeKNode(root, 2), -1);
     TreeNode* root2 = new TreeNode(1);
     EXPECT_EQ(FindLargeKNode(root, 0), -1);

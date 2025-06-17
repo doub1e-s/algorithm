@@ -6,26 +6,35 @@
 
 int GetReorderCntHelper(vector<int>& arr, vector<int>& temp, int left, int right)
 {
-    if (left >= right) { return 0; }
-    int mid = right + ((left - right) >> 1);
-    int result = GetReorderCntHelper(arr, temp, left, mid) + GetReorderCntHelper(arr, temp, mid + 1, right);
-    int arrLeftIdx = left;
-    int arrRightIdx = mid + 1;
-    int tempIdx = left;
-    while (arrLeftIdx <= mid && arrRightIdx <= right) {
-        if (arr[arrLeftIdx] <= arr[arrRightIdx]) {
-            temp[tempIdx++] = arr[arrLeftIdx++];
+    if (left >= right) {
+        return 0;
+    }
+    int mid = left + ((right - left) >> 1);
+    // 二分后，左右两边的数组分别的乱序对个数
+    int reorderCnt = GetReorderCntHelper(arr, temp, left, mid) + GetReorderCntHelper(arr, temp, mid + 1, right);
+    // 合并过程中，两个数组之间的乱序个数
+    int leftIndex = left;
+    int rightIndex = mid + 1;
+    int tempIndex = left;
+    while (leftIndex <= mid && rightIndex <= right) {
+        if (arr[leftIndex] > arr[rightIndex]) {
+            reorderCnt += (mid - leftIndex + 1);
+            temp[tempIndex++] = arr[rightIndex++];
         } else {
-            temp[tempIdx++] = arr[arrRightIdx++];
-            result += mid - arrLeftIdx + 1;
+            temp[tempIndex++] = arr[leftIndex++];
         }
     }
-    while (arrLeftIdx <= mid) { temp[tempIdx++] = arr[arrLeftIdx++]; }
-    while (arrRightIdx <= right) { temp[tempIdx++] = arr[arrRightIdx++]; }
-    for (int i = left; i <= right; i++) {
-        arr[i] = temp[i];
+    while (leftIndex <= mid) {
+        temp[tempIndex++] = arr[leftIndex++];
     }
-    return result;
+    while (rightIndex <= right) {
+        temp[tempIndex++] = arr[rightIndex++];
+    }
+    int copyIndex = left;
+    for (int copyIndex = left; copyIndex <= right; copyIndex++) {
+        arr[copyIndex] = temp[copyIndex];
+    }
+    return reorderCnt;
 }
 
 int GetReorderPairCnt(vector<int> arr)
