@@ -42,6 +42,7 @@ int GetReorderPairCnt(vector<int> arr)
     if (arr.size() < 1) {
         return 0;
     }
+
     vector<int> temp(arr.size());
     return GetReorderCntHelper(arr, temp, 0, arr.size() - 1);
 }
