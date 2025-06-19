@@ -295,4 +295,7 @@ string RevertStringByWord(string word);
 
 string leftRotateString(string word, int k);
 
+// 59 队列的最大值
+vector<int> MaxValueInWindow(vector<int> vec, int window);
+
 #endif //ALGORITHMS_H
