@@ -4,13 +4,19 @@
 
 #include "my_algorithms.h"
 #include <queue>
+#include <algorithm>
 
 
 // 核心思路是使用一个双端队列维护最大的index队列，index队列单调递增，新的元素来了之后，将队尾小于新元素的数据剔除
 // 在新元素入队之前，也从队头开始，将所有过期的元素丢弃
 vector<int> MaxValueInWindow(vector<int> nums, int window) {
     vector<int> result; // 修正：用 vector 存储结果
-    if (nums.empty() || window <= 0) return result; // 直接返回空 vector
+    if (nums.empty()) return result; // 直接返回空 vector
+    if (window > nums.size()) {
+        auto maxPtr = std::max_element(nums.begin(), nums.end());
+        result.push_back(*maxPtr);
+        return result;
+    }
 
     deque<int> maxIndexDq; // 存储索引（单调递减队列）
 
