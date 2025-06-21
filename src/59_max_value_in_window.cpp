@@ -10,36 +10,31 @@
 // 核心思路是使用一个双端队列维护最大的index队列，index队列单调递增，新的元素来了之后，将队尾小于新元素的数据剔除
 // 在新元素入队之前，也从队头开始，将所有过期的元素丢弃
 vector<int> MaxValueInWindow(vector<int> nums, int window) {
-    vector<int> result; // 修正：用 vector 存储结果
-    if (nums.empty()) return result; // 直接返回空 vector
-    if (window > nums.size()) {
-        auto maxPtr = std::max_element(nums.begin(), nums.end());
-        result.push_back(*maxPtr);
+    vector<int> result;
+    if (window == 0) {
         return result;
     }
-
-    deque<int> maxIndexDq; // 存储索引（单调递减队列）
-
-    for (int i = 0; i < nums.size(); ++i) {
-        // 1. 移除过期索引（不在当前窗口内）
-        if (!maxIndexDq.empty() && maxIndexDq.front() <= i - window) {
-            maxIndexDq.pop_front();
+    if (window > nums.size()) {
+        auto maxIt = max_element(nums.begin(), nums.end());
+        result.push_back(*maxIt);
+        return result;
+    }
+    deque<int> maxElementDeque;
+    for (int i = 0; i < nums.size(); i++) {
+        // 1. 删除过期数据  window = 3, i = 3, front = 0, 需要弹出一个元素;
+        if (!maxElementDeque.empty() && ((i - maxElementDeque.front() + 1) > window)) {
+            maxElementDeque.pop_front();
         }
-
-        // 2. 维护单调递减队列（从队尾移除比当前元素小的索引）
-        while (!maxIndexDq.empty() && nums[maxIndexDq.back()] < nums[i]) {
-            maxIndexDq.pop_back();
+        // 2. 从队尾插入元素，如果队尾小于当前值，则将其弹出
+        while (!maxElementDeque.empty() && nums[maxElementDeque.back()] <= nums[i]) {
+            maxElementDeque.pop_back();
         }
-
-        // 3. 当前索引入队
-        maxIndexDq.push_back(i);
-
-        // 4. 记录最大值（当窗口大小达到 window 时）
+        // 3. 准备工作已做好，将当前的数组下标推入双端队列
+        maxElementDeque.push_back(i);
         if (i >= window - 1) {
-            result.push_back(nums[maxIndexDq.front()]);
+            result.push_back(nums[maxElementDeque.front()]);
         }
     }
-
-    return result; // 直接返回结果
+    return result;
 }
 
