@@ -6,24 +6,21 @@
 
 int Partition(vector<int>& vec, int left, int right)
 {
-    if (left >= right) { return left; }
-    int small = left;
-    int big = right - 1;
-    int pivot = vec[right];
-    while (small < big) {
-        while (small < big && vec[small] <= pivot) {
-            small++;
+    if (vec.empty() || left >= right) { return left; }
+    int pivot = right;
+    while (left < right) {
+        while (left < right && vec[left] <= vec[pivot]) {
+            left++;
         }
-        while (small < big && vec[big] >= pivot) {
-            big--;
+        while (left < right && vec[right] >= vec[pivot]) {
+            right--;
         }
-        swap(vec[small], vec[big]);
+        swap(vec[left], vec[right]);
     }
-    // 如果存在比vec[right]更大的值，将他和right调换位置
-    if (vec[small] >= pivot) {
-        swap(vec[right], vec[small]);
+    if (vec[right] > vec[pivot]) {
+        swap(vec[left], vec[pivot]);
     }
-    return small;
+    return left;
 }
 
 void QuickSort(vector<int>& vec, int left, int right)
