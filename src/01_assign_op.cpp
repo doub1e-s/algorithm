@@ -27,16 +27,25 @@ CMyString& CMyString::operator=(const CMyString& str)
     strcpy(m_pData, str.m_pData);
     return *this;
 }
+
+class CMyString {
+public:
+    char* m_pData;
+    int m_length;
+}
 */
 
 // 优雅的写法，使用拷贝构造函数和临时变量，保证了即是内存不够，也保证原有的对象还是能够正常使用
 CMyString& CMyString::operator=(const CMyString& str)
 {
     if (this != &str) {
-        CMyString strTemp(str); // 使用拷贝构造函数在栈上创建一个相同的临时实例
-        char* pTemp = strTemp.m_pData;  // 保留temp中m_pData的地址
-        strTemp.m_pData = m_pData;  // 将当前对象的地址传给临时变量，以便临时变量调用析构函数时能清除内存
-        m_pData = pTemp;    // 将当前的m_pData指向实际复制的那段地址
+        CMyString tempStr(str);
+        char* tempDataPtr = tempStr.m_pData;
+        int tempLen = tempStr.m_length;
+        tempStr.m_length = m_length;
+        tempStr.m_pData = m_pData;
+        m_pData = tempDataPtr;
+        m_length = tempLen;
     }   // 作用域结束后，strTemp会删除旧的地址空间
     return *this;
 }
