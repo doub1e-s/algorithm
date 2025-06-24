@@ -7,8 +7,8 @@
 
 void ReplaceBlank(std::string& src)
 {
-    for (auto it = src.begin(); it != src.end(); ++it) {
-        if(*it == ' ') {
+    for (auto it = src.begin(); it != src.end(); it++) {
+        if (*it == ' ') {
             src.replace(it, it+1, "%20");
         }
     }
