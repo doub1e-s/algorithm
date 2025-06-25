@@ -23,7 +23,7 @@ std::vector<int> TraverseListFromEnd(const ListNode* head)
 // 使用递归进行反向链表的打印
 void TraverseListFromEnd(const ListNode* head, std::vector<int>& result)
 {
-    if (head == nullptr) { return; }
+    if (head == nullptr) { return ; }
     TraverseListFromEnd(head->next, result);
     result.push_back(head->value);
 }

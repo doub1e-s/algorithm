@@ -13,12 +13,10 @@ int Fibonacci(int n)
 
 int FibonacciByVec(int n)
 {
-    if (n == 0) { return 0; }
-    if (n == 1) { return 1; }
-    std::vector<int> vec(n + 1);
+    vector<int> vec(n + 1, 0);
     vec[0] = 0;
     vec[1] = 1;
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i < vec.size(); i++) {
         vec[i] = vec[i - 1] + vec[i - 2];
     }
     return vec[n];
