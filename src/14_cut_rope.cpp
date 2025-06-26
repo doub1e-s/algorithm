@@ -9,20 +9,20 @@
 int CutRope(int k)
 {
     if (k <= 1) { return 0; }
-    if (k == 2) { return 1;}
+    if (k == 2) { return 1; }
     if (k == 3) { return 2; }
-    std::vector<int> product;
-    product.reserve(k + 1);
-    product[0] = 0;
-    product[1] = 1;
-    product[2] = 2;
-    product[3] = 3;
+    vector<int> res;
+    res.resize(k + 1);  // 不可以使用reserve，reserve不会改变size的大小，后续使用[]的时候会导致crash
+    res[1] = 1;
+    res[2] = 2;
+    res[3] = 3;
     for (int i = 4; i <= k; i++) {
-        int maxProduct = 0;
-        for (int j = 1; j <i; j++) {
-            maxProduct = std::max(maxProduct, (product[j] * product[i - j]));
+        int maxResult = i;
+        for (int j = 1; j < i; j++) {
+            // 在已经有的全部结果里面去统计新的最大的值
+            maxResult = max(maxResult, res[j] * res[i - j]);
         }
-        product[i] = maxProduct;
+        res[i] = maxResult;
     }
-    return product[k];
+    return res[k];
 }

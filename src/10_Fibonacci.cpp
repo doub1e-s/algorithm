@@ -13,6 +13,8 @@ int Fibonacci(int n)
 
 int FibonacciByVec(int n)
 {
+    if (n <= 0) { return 0; }
+    if (n == 1) { return 1; }
     vector<int> vec(n + 1, 0);
     vec[0] = 0;
     vec[1] = 1;

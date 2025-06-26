@@ -1,5 +1,3 @@
-project(algorithm_tests)
-
 # 子目录下引用了当前最新的gtest对应的tag
 add_subdirectory(third_party/googletest-1.16.0)
 
@@ -16,7 +14,7 @@ add_executable(
         ${TEST_SOURCES}
 )
 target_link_libraries(
-        algorithm_tests
+        ${PROJECT_NAME}
         PRIVATE
         # 链接项目中生成库，库的生成事public的，所以可以直接使用，不需要标注include路径
         OfferSolutionsLib
@@ -25,4 +23,4 @@ target_link_libraries(
 
 include(GoogleTest)
 
-gtest_discover_tests(algorithm_tests)
+gtest_discover_tests(${PROJECT_NAME})

@@ -3,6 +3,7 @@
 //
 
 #include <gtest/gtest.h>
+#include <cstring>
 #include "my_algorithms.h"
 
 TEST(StringTest, StringPointerAndArray)
@@ -11,8 +12,9 @@ TEST(StringTest, StringPointerAndArray)
     char str2[] = "helloworld";
     const char* str3 = "helloworld";
     const char* str4 = "helloworld";
-    EXPECT_NE(str1, str2);
-    EXPECT_EQ(str3, str4);
+    // EXPECT_EQ(str3, str4);   str3和str4本身是两个不同的指针，指向的是否为同一个地址依赖编译器的行为。
+    EXPECT_NE(str1, str2);  
+    EXPECT_EQ(strcmp(str3, str4), 0);
 }
 
 TEST(StringReplaceTest, StringReplaceTestEmpty)
