@@ -23,3 +23,27 @@ int MemCopyByBytes(void* dest, const void* src, size_t count)
     return count;
 }
 
+int MemCopyByWordLen(void* dest, const void* src, size_t count)
+{
+     if (dest == nullptr || src == nullptr || count == 0) {
+        return -1;
+    }
+    if (dest == src) {
+        return 0;
+    }
+    size_t wordLen = sizeof(void*);
+    size_t wordCount = count / wordLen;
+    for (size_t i = 0; i < wordCount; i++) {
+        void** destVoidP = reinterpret_cast<void**>(reinterpret_cast<uintptr_t>(dest) + i * wordLen);
+        void** srcVoidP = reinterpret_cast<void**>(reinterpret_cast<uintptr_t>(src) + i * wordLen);
+        *destVoidP = *srcVoidP;
+    }
+    size_t leftChCount = count % wordLen;
+    for (size_t i = 0; i < leftChCount; i++) {
+        char* destCh = reinterpret_cast<char*>(reinterpret_cast<uintptr_t>(dest) + i);
+        char* srcCh = reinterpret_cast<char*>(reinterpret_cast<uintptr_t>(src) + i);
+        *destCh = *srcCh;
+    }
+    return count;
+}
+
