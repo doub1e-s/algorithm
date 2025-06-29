@@ -304,9 +304,6 @@ int MemCopyByBytes(void* dest, const void* src, size_t count);
 
 int MemCopyByWordLen(void* dest, const void* src, size_t count);
 
-
-
-
 // 快排
 void QuickSort(vector<int>& vec, int left, int right);
 #endif //ALGORITHMS_H

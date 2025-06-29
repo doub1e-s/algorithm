@@ -6,10 +6,10 @@
 
 int Partition(vector<int>& vec, int left, int right)
 {
-    if (vec.empty() || left >= right) { return left; }
+    if (left == right) { return left; }
     int pivot = right;
     while (left < right) {
-        while (left < right && vec[left] <= vec[pivot]) {
+        while (left < right && vec[left] < vec[pivot]) {
             left++;
         }
         while (left < right && vec[right] >= vec[pivot]) {
@@ -17,7 +17,7 @@ int Partition(vector<int>& vec, int left, int right)
         }
         swap(vec[left], vec[right]);
     }
-    if (vec[right] > vec[pivot]) {
+    if (vec[left] > vec[pivot]) {
         swap(vec[left], vec[pivot]);
     }
     return left;
@@ -25,11 +25,10 @@ int Partition(vector<int>& vec, int left, int right)
 
 void QuickSort(vector<int>& vec, int left, int right)
 {
-    // 如果vec为空，或者left/right超过边界，直接返回
-    if (vec.empty() || left < 0 || right >= vec.size() || left >= right) { return ; }
-    // 找一个数字，将数组中的所有大于他的都放左边，小于他的都放右边
-    int index = Partition(vec, left, right);
-    // 返回这个数字的下标，递归执行他的左侧和右侧数组
-    QuickSort(vec, left, index - 1);
-    QuickSort(vec, index + 1, right);
+    if (vec.empty() || left < 0 || left > right || right >= vec.size()) {
+        return ;
+    }
+    int partition = Partition(vec, left, right);
+    QuickSort(vec, left, partition - 1);
+    QuickSort(vec, partition + 1, right);
 }
