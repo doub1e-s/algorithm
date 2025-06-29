@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <functional>
+#include <cstddef>
 
 using namespace std;
 
@@ -298,6 +299,8 @@ string leftRotateString(string word, int k);
 // 59 队列的最大值
 vector<int> MaxValueInWindow(vector<int> vec, int window);
 
+// 60 实现一个memCpy函数
+int MemCopyByBytes(void* dest, const void* src, size_t count);
 
 
 
