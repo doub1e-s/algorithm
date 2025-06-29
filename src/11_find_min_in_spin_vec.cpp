@@ -11,15 +11,13 @@ int FindMinInSpinVec(std::vector<int>& vec)
     int right = vec.size() - 1;
     int mid;
     while (left < right) {
-        mid = (right - left) / 2 + left;
-        // 不能使用mid和左右两边比较是否小，因为可能存在当前值是最大值的可能。
-        // 理想状态应该是，最后状态是，左边指针是最大值，右边指针是最小值。
+        mid = left + (right - left) / 2;
         if (vec[mid] > vec[right]) {
-            left = mid + 1;
+            left = mid + 1;     // left 最终指向的是最小值
         } else if (vec[mid] < vec[right]) {
             right = mid;
         } else {
-            right--;    // else是和最近的一个if进行匹配 也就是
+            right--;    // mid和right相同时， 说明突变点在左侧，让right--
         }
     }
     return vec[left];
