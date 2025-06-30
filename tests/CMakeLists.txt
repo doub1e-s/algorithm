@@ -6,8 +6,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 enable_testing()
 
-# 创建TEST_SOURCES目录并将当前目录下的所有cpp文件包括进去
-file(GLOB TEST_SOURCES "*.cpp")
+# 创建TEST_SOURCES目录并将当前目录下的所有cpp文件包括进去，GLOB表示通配符匹配
+file(GLOB_RECURSE TEST_SOURCES "*.cpp")
 
 add_executable(
         ${PROJECT_NAME}
