@@ -5,30 +5,35 @@
 #include "my_algorithms.h"
 
 // 使用二分法的思想，叠加递归解决问题。 注意exponent是0，负数，不能整除2的情况
-double GetPower(int value, int exponent)
+
+double GetPowerHelper(int value, int exponent)
 {
-    if (value == 0 && exponent == 0) { return 0; }
-    if (exponent == 0) { return 1; }
-    bool flip = false;
-    if (exponent < 0) {
-        flip = true;
-        exponent = -exponent;
-    }
-    if (exponent == 1) {
+    if (abs(exponent) == 1) {
         return value;
     }
-
-    bool multyAnotherOne = false;
-    if (exponent %2 == 1) { multyAnotherOne = true; }
-    int part1 = GetPower(value, exponent / 2);
-    double result;
-    if (multyAnotherOne) {
-        result = part1 * part1 * value;
+    // 能减少递归的次数就尽量的减少递归的次数，将一半的结果存储下来，然后直接使用
+    double halfResult = GetPowerHelper(value, exponent / 2);
+    if (exponent % 2 == 0) {
+        return halfResult * halfResult;
     } else {
-        result = part1 * part1;
+        return halfResult * halfResult * value;
     }
-    if (!flip) {
-        return result;
+}
+
+double GetPower(int value, int exponent)
+{
+    if (value == 0) {
+        return 0;
     }
-    return 1 / result;
+    if (exponent == 0) {
+        return 1;
+    }
+    double res = GetPowerHelper(value, exponent);
+    if (exponent < 0) {
+        res = 1 / res;
+    }
+    if (value < 0 && exponent % 2 != 0) {
+        res = -res;
+    }
+    return res;
 }

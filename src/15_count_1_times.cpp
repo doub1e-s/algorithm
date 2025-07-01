@@ -6,10 +6,10 @@
 
 int Count1Times(int value)
 {
-    int count1Times = 0;
-    while (value != 0) {
-        count1Times++;
+    int res = 0;
+    while (value) {
         value = value & (value - 1);
+        res++;
     }
-    return count1Times;
+    return res;
 }
