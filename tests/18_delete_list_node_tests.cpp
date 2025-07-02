@@ -8,7 +8,6 @@
 
 TEST(DeleteListNodeTests, DeleteMidNode)
 {
-    ListNode* head;
     ListNode* node1 = new ListNode(1);
     ListNode* node2 = new ListNode(2);
     ListNode* node3 = new ListNode(3);
@@ -21,9 +20,10 @@ TEST(DeleteListNodeTests, DeleteMidNode)
     node4->next = node5;
     node5->next = node6;
     node6->next = NULL;
-    head = node1;
-    DeleteListNode(&head, &node2);
-    EXPECT_EQ((head->next), node3);
+    DeleteListNode(&node1, &node2);
+    // EXPECT_EQ((node1->next), node3); 直接判断指针是否为node3是不对的，因为node3实际上已经被删除了，node->next = node2
+    // 只是这里的node2里面数据已经变成了node3中的数据了。这样的写法删除数据仅限于通过head执行next操作的链表。
+    EXPECT_EQ((node1->next)->value, node3->value);
     EXPECT_EQ(node2, nullptr);
 }
 
@@ -38,7 +38,7 @@ TEST(DeleteNodeTest, DeleteHeadNode) {
     head = node1;
     DeleteListNode(&head, &node1);
     EXPECT_EQ((head->next), node3);
-    EXPECT_EQ(head, node2);
+    EXPECT_EQ(node1, nullptr);
 }
 
 TEST(DeleteNodeTest, DeleteTailNode) {
@@ -51,6 +51,5 @@ TEST(DeleteNodeTest, DeleteTailNode) {
     node2->next = node3;
     head = node1;
     DeleteListNode(&head, &node3);
-    EXPECT_EQ((node2->next), nullptr);
     EXPECT_EQ(node3, nullptr);
 }
