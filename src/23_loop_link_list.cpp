@@ -6,38 +6,32 @@
 
 ListNode* GetLoopLinkListEntryNode(ListNode* head)
 {
-    if (head == nullptr) {
-        return nullptr;
-    }
+    if (head == nullptr) { return nullptr; }
     ListNode* fast = head;
     ListNode* slow = head;
-    while (slow != nullptr && slow->next != nullptr) {
+    while (fast != nullptr && fast->next != nullptr) {
         slow = slow->next;
-        if (slow->next == nullptr) {
-            return nullptr;
-        }
-        slow = slow->next;
-        fast = fast->next;
-        if (slow == fast) {
-            break;  // 能够追上说明有环，此时s
+        fast = fast->next->next;
+        if (fast == slow) {
+            break;
         }
     }
-    // 说明当前是存在环，则使用快慢指针确认环的长度
-    int circleSize = 0;
-    do {
-        fast = fast->next;
-        slow = slow->next;
-        slow = slow->next;
-        circleSize += 2;
-    } while (fast != slow);
+    if (fast == nullptr || fast->next == nullptr) { return nullptr; }   // 不存在环
+    // 初始值设置为下一个节点，并且将当前size初始值设置为1
+    ListNode* curNode = slow->next;
+    int loopSize = 1;
+    while (curNode != slow) {
+        loopSize++;
+        curNode = curNode->next;
+    }
+    curNode = head;
     fast = head;
-    slow = head;
-    for (int i = 0; i < circleSize; i++) {
+    for (int i = 0; i < loopSize; i++) {
         fast = fast->next;
     }
-    while (slow != fast) {
+    while (curNode != fast) {
+        curNode = curNode->next;
         fast = fast->next;
-        slow = slow->next;
     }
-    return fast;
+    return curNode;
 }

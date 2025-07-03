@@ -23,7 +23,7 @@ TEST(DeleteListNodeTests, DeleteMidNode)
     DeleteListNode(&node1, &node2);
     // EXPECT_EQ((node1->next), node3); 直接判断指针是否为node3是不对的，因为node3实际上已经被删除了，node->next = node2
     // 只是这里的node2里面数据已经变成了node3中的数据了。这样的写法删除数据仅限于通过head执行next操作的链表。
-    EXPECT_EQ((node1->next)->value, node3->value);
+    EXPECT_EQ((node1->next)->value, 3);
     EXPECT_EQ(node2, nullptr);
 }
 

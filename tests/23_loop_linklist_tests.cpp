@@ -15,4 +15,13 @@ TEST(LoopLinkListTests, NormalTests)
     node5.next = &node4;
     ListNode* res = GetLoopLinkListEntryNode(&node1);
     EXPECT_EQ(res, &node4);
+
+
+    node5.next = &node3;
+    res = GetLoopLinkListEntryNode(&node1);
+    EXPECT_EQ(res, &node3);
+
+    node5.next = &node2;
+    res = GetLoopLinkListEntryNode(&node1);
+    EXPECT_EQ(res, &node2);
 }
