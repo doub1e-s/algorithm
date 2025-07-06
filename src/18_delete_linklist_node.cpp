@@ -8,18 +8,16 @@
 // 这种写法仅限于通过head访问链表节点，否则如果如果直接访问deleteTarget->next，会出现访问也空指针的问题(里面的内容已经被delete掉了)
 void DeleteListNode(ListNode** node, ListNode** deleteTarget)
 {
-    // 当前节点完全拷贝下一个节点的所有内容，然后将下一个节点删除
-    if (node == nullptr || *node == nullptr || deleteTarget == nullptr || *deleteTarget == nullptr) {
-        return ;
-    }
-    if ((*deleteTarget)->next == nullptr) {
+    if (node == nullptr || *node == nullptr || deleteTarget == nullptr || *deleteTarget == nullptr) { return ; }
+    ListNode* nextPtr = (*deleteTarget)->next;
+    if (nextPtr == nullptr) {
         delete (*deleteTarget);
         *deleteTarget = nullptr;
         return ;
     }
-    ListNode* next = (*deleteTarget)->next;
+    // 将next对应的信息赋值给当前节点
     (*deleteTarget)->value = (*deleteTarget)->next->value;
     (*deleteTarget)->next = (*deleteTarget)->next->next;
-    delete next;
+    delete (nextPtr);
     *deleteTarget = nullptr;
 }
