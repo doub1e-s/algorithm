@@ -14,6 +14,6 @@ bool SymmertricTree(TreeNode* left, TreeNode* right)
 
 bool SymmertricTree(TreeNode* head)
 {
-    if (!head) { return false; }
+    if (!head) { return false; }    // 题目要求，如果是空返回false
     return SymmertricTree(head->left, head->right);
 }
